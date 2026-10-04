@@ -3,7 +3,6 @@ package com.xiaoyan.archive;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,18 +18,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.webkit.WebSettingsCompat;
-import androidx.webkit.WebViewFeature;
 
 /**
  * 星空小站主界面：全屏 WebView 加载站点页面。
  *
  * 主要能力：
  * - JavaScript + DOM Storage + 多媒体 + 缩放
- * - 深色模式跟随系统（WebView 内 web 内容也跟随）
  * - 顶部进度条
  * - 菜单：刷新 / 分享 / 外部浏览器 / 切换服务器
  * - 后退键支持网页后退
+ *
+ * 深色模式：App 外壳（工具栏/启动页）通过 themes.xml 自动跟随系统；
+ * WebView 内的网站内容由站点自身管理主题，不在 WebView 层面强制。
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -87,16 +86,6 @@ public class MainActivity extends AppCompatActivity {
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(true);
-
-        // 深色模式：跟随系统 UI 设置
-        if (WebViewFeature.isSupported(WebViewFeature.FORCE_DARK)) {
-            int nightMode = getResources().getConfiguration().uiMode
-                    & Configuration.UI_MODE_NIGHT_MASK;
-            boolean isDark = nightMode == Configuration.UI_MODE_NIGHT_YES;
-            WebSettingsCompat.setForceDark(settings,
-                    isDark ? WebSettingsCompat.FORCE_DARK_ON
-                           : WebSettingsCompat.FORCE_DARK_OFF);
-        }
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
