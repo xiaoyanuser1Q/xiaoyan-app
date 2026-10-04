@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    name: Build &amp; Release APK
+    name: Build & Release APK
     runs-on: ubuntu-latest
 
     steps:
@@ -106,7 +106,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}
-          name: 星空小站 App v1.0.0 · 构建 #${{ github.run_number }}
+          name: "星空小站 App v1.0.0 · 构建 #${{ github.run_number }}"
+          files: artifacts/*.apk
           body: |
             ## 星空小站 Android App v1.0.0
 
