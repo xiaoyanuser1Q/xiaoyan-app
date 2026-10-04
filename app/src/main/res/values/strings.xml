@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">星空小站</string>
+    <string name="splash_title">星空小站</string>
+    <string name="splash_subtitle">张玉航 · 星空下的角落</string>
+    <string name="action_refresh">刷新</string>
+    <string name="action_share">分享当前页面</string>
+    <string name="action_open_browser">在浏览器打开</string>
+    <string name="action_switch_domain">切换服务器</string>
+    <string name="toast_share">分享</string>
+    <string name="toast_domain_switched">已切换到：%1$s</string>
+</resources>

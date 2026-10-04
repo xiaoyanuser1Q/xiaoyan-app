@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 五角星：居中，缩放 0.62 使图形处于安全区域 -->
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.62"
+        android:scaleY="0.62">
+        <path
+            android:fillColor="#FFD700"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="1"
+            android:pathData="M54,12 L65.5,41.4 L96.7,43.3 L72.4,63.8 L80.6,94.7 L54,77.4 L27.4,94.7 L35.6,63.8 L11.3,43.3 L42.5,41.4 Z" />
+    </group>
+</vector>

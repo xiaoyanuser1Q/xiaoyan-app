@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_purple">#5B21B6</color>
+    <color name="brand_purple_dark">#3B0764</color>
+    <color name="brand_purple_deep">#1A1A4A</color>
+    <color name="brand_purple_mid">#3D1F8B</color>
+    <color name="brand_gold">#FFD700</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

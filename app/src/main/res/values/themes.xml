@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.XiaoyanArchive" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand_purple</item>
+        <item name="colorPrimaryDark">@color/brand_purple_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/brand_gold</item>
+        <item name="colorAccent">@color/brand_gold</item>
+        <item name="android:statusBarColor">@color/brand_purple_dark</item>
+        <item name="android:navigationBarColor">@color/brand_purple_deep</item>
+    </style>
+
+    <style name="Theme.XiaoyanArchive.Splash" parent="Theme.XiaoyanArchive">
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+        <item name="android:statusBarColor">@color/brand_purple_deep</item>
+        <item name="android:navigationBarColor">@color/brand_purple_deep</item>
+    </style>
+
+</resources>
