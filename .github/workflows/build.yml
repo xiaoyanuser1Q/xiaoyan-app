@@ -83,7 +83,7 @@ jobs:
             gradle assembleDebug --stacktrace --no-daemon
           fi
 
-      - name: Prepare artifact
+      - name: Prepare artifact (固定文件名方便主站用 latest/download 链接)
         run: |
           mkdir -p artifacts
           APK=$(find app/build/outputs/apk -name "*.apk" | head -1)
@@ -92,13 +92,14 @@ jobs:
             ls -la app/build/outputs/ 2>/dev/null || true
             exit 1
           fi
-          cp "$APK" "artifacts/xiaoyan-archive-build${GITHUB_RUN_NUMBER}.apk"
+          # 固定文件名 xiaoyan-archive.apk，主站可用 releases/latest/download/xiaoyan-archive.apk 自动跟随
+          cp "$APK" "artifacts/xiaoyan-archive.apk"
           ls -la artifacts/
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: xiaoyan-archive-apk-build-${{ github.run_number }}
+          name: xiaoyan-archive-apk
           path: artifacts/*.apk
           retention-days: 30
 
@@ -127,17 +128,11 @@ jobs:
             - 点右上角菜单 → 「切换服务器」可在两者间一键切换
             - 深色模式跟随系统设置
             - 后退键支持网页后退
+            - 启动时自动检查新版本（fetch GitHub releases/latest，新版弹窗 + 24h 冷却）
 
             ### 升级覆盖安装
-            若之前安装过旧版，请：
-            - 直接安装新版（若签名一致可覆盖）；或
-            - 卸载旧版后重装。
-
-            ### 升级为 release 签名
-            当前为 debug 签名，可正常安装使用。若想升级为 release 签名：
-            1. 电脑上运行 `keytool -genkeypair` 生成 keystore
-            2. base64 编码后上传到 GitHub Secrets（KEYSTORE_BASE64 / KEYSTORE_PASSWORD / KEY_ALIAS / KEY_PASSWORD）
-            3. 下次构建自动切换为 release 签名
+            - **build-3 用户**（debug 签名）：需先卸载旧版再安装新版（签名升级为 release，无法覆盖）
+            - **build-9+ 用户**（release 签名）：可直接覆盖安装
 
           draft: false
           prerelease: false
