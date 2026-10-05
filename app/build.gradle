@@ -19,6 +19,11 @@ android {
         buildConfigField "String", "GITHUB_REPO", "\"xiaoyan-app\""
     }
 
+    // AGP 8+ 默认禁用 BuildConfig 字段生成，需显式开启
+    buildFeatures {
+        buildConfig true
+    }
+
     signingConfigs {
         release {
             def ksFile = file("${projectDir}/release.keystore")
