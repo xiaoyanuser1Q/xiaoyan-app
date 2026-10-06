@@ -13,7 +13,7 @@ android {
         // versionCode 跟随 GitHub Actions run number (build-N)，让 App 内部能比较版本
         // 本地构建默认 1，CI 构建会注入 GITHUB_RUN_NUMBER
         versionCode Integer.parseInt(System.getenv("GITHUB_RUN_NUMBER") ?: "1")
-        versionName "1.0.0"
+        versionName "1.1.0"
         // 自动更新检查用的仓库（App 启动时 fetch releases/latest 比对版本号）
         buildConfigField "String", "GITHUB_OWNER", "\"xiaoyanuser1Q\""
         buildConfigField "String", "GITHUB_REPO", "\"xiaoyan-app\""
